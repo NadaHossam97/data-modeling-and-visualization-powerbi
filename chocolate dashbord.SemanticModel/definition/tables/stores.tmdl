@@ -1,0 +1,61 @@
+table stores
+	lineageTag: b8063e11-67d7-43cb-b307-77a0de3da95f
+
+	column store_id
+		dataType: string
+		lineageTag: 628e0499-003e-4ab9-a53a-d63f2e33b2d0
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: 2b90efa1-4328-41a8-b7e9-23e64178272e
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 0a4a8591-0997-4517-aee2-b337d07a467f
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 2a612db0-1657-4530-8832-9d6e459b25a9
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_type
+		dataType: string
+		lineageTag: 7385f24e-43b9-4574-b8af-5cdb48753665
+		summarizeBy: none
+		sourceColumn: store_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition stores = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\Downloads\noudi\CHOCOLATE SALES DATASET\stores.xlsx"), null, true),
+				    stores_Sheet = Source{[Item="stores",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(stores_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"store_id", type text}, {"store_name", type text}, {"city", type text}, {"country", type text}, {"store_type", type text}})
+				in
+				    #"Changed Type1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

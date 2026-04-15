@@ -1,0 +1,180 @@
+table sales
+	lineageTag: 7ed160d8-083d-4e3b-b120-d25400a5a00f
+
+	measure 'Sum of profit YTD' =
+			
+			IF(
+				ISFILTERED('sales'[order_date]),
+				ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
+				TOTALYTD(SUM('sales'[profit]), 'sales'[order_date].[Date])
+			)
+		lineageTag: 390ce06d-697e-466c-85f8-324f47fa8c0e
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "YearToDate"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum of profit YTD 2' =
+			
+			IF(
+				ISFILTERED('sales'[order_date]),
+				ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
+				TOTALYTD(SUM('sales'[profit]), 'sales'[order_date].[Date])
+			)
+		lineageTag: 1265e766-aad9-4468-8cc9-da87bff3a425
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "YearToDate"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum of profit YTD 3' =
+			
+			IF(
+				ISFILTERED('sales'[order_date]),
+				ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
+				TOTALYTD(SUM('sales'[profit]), 'sales'[order_date].[Date])
+			)
+		lineageTag: 5cbfd61f-2a58-477c-b6bf-2837a21f854d
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "YearToDate"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_id
+		dataType: string
+		lineageTag: e929d85c-d379-4015-8649-3a5ba038ccfe
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e3f7dcc8-b5e9-469c-a5be-5380cc05efe3
+		summarizeBy: none
+		sourceColumn: order_date
+
+		variation Variation
+			isDefault
+			relationship: a76d0501-fa8c-4e31-b218-9e2ad83d74ac
+			defaultHierarchy: LocalDateTable_99b3d4d8-e41c-4afa-a70e-4ed0f12d1948.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column product_id
+		dataType: string
+		lineageTag: 09498c54-4e24-46a7-88a9-c360bb8881a1
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		lineageTag: 65f59218-4b36-429a-aa11-b221e81abbdb
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 4bd4ec41-00bb-4443-9fdf-51d7749f02ef
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bdf9d10-703a-4618-b625-496acf56aed1
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 3e79882c-4cd7-4b11-ac8e-5dca5ab0d954
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount
+		dataType: double
+		lineageTag: e5d4073a-512a-4af6-b8c1-2caeb7c20cbf
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue
+		dataType: double
+		lineageTag: 1ce0c0ea-513c-417d-b17e-c1410a403d39
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost
+		dataType: double
+		lineageTag: 0c99dbb0-fc26-4332-a922-e504bd3e0535
+		summarizeBy: sum
+		sourceColumn: cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit
+		dataType: double
+		lineageTag: 0c611f12-f17c-4d6f-a183-d81f0996e4ba
+		summarizeBy: sum
+		sourceColumn: profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition sales = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\Downloads\noudi\CHOCOLATE SALES DATASET\sales.xlsx"), null, true),
+				    sales_Sheet = Source{[Item="sales",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(sales_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", type text}, {"order_date", type date}, {"product_id", type text}, {"store_id", type text}, {"customer_id", type text}, {"quantity", Int64.Type}, {"unit_price", type number}, {"discount", type number}, {"revenue", type number}, {"cost", type number}, {"profit", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

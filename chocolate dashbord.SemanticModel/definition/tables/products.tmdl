@@ -1,0 +1,66 @@
+table products
+	lineageTag: fa72d67d-e70d-42fe-95b2-16c2c21add69
+
+	column product_id
+		dataType: string
+		lineageTag: 3978ffd3-64e7-460f-b91f-944df7ce7ad1
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 41ef2dbc-148d-4750-8f56-e20c050feec4
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 3a13cf08-1c1e-40d7-a489-dcca5a7f276c
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: e0a4de7a-2d4c-4f5d-8e1e-08e6e65216f6
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column cocoa_percent
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bce4d09-ecfb-43c8-afbe-23ba3af66999
+		summarizeBy: none
+		sourceColumn: cocoa_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: 6efd929c-cfac-448d-ae06-95c13a212ced
+		summarizeBy: none
+		sourceColumn: weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\Downloads\noudi\CHOCOLATE SALES DATASET\products.xlsx"), null, true),
+				    products_Sheet = Source{[Item="products",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(products_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_id", type text}, {"product_name", type text}, {"brand", type text}, {"category", type text}, {"cocoa_percent", Int64.Type}, {"weight_g", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

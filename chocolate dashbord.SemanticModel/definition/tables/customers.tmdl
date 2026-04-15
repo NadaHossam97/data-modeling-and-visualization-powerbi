@@ -1,0 +1,66 @@
+table customers
+	lineageTag: 24d6876b-854f-4495-afa7-904396312c02
+
+	column customer_id
+		dataType: string
+		lineageTag: 70deaf7f-b2fc-4050-b658-8d83bdaf1f7e
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 9172ef57-3ed3-4e36-88cb-53164887d41a
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 331e3cd6-f04c-4626-9b98-29d427e45f49
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column loyalty_member
+		dataType: int64
+		formatString: 0
+		lineageTag: bea74594-45c2-46ab-8c5f-e7c9758a4d09
+		summarizeBy: sum
+		sourceColumn: loyalty_member
+
+		annotation SummarizationSetBy = Automatic
+
+	column join_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 188b5caa-4dfd-49b6-9064-3b688564f4b2
+		summarizeBy: none
+		sourceColumn: join_date
+
+		variation Variation
+			isDefault
+			relationship: 5276b7f9-4ad4-4f9e-9f11-7fa5c60cb6aa
+			defaultHierarchy: LocalDateTable_d80bf294-612b-40bb-8c78-d08bea7f8e94.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition customers = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\Downloads\noudi\CHOCOLATE SALES DATASET\customers.xlsx"), null, true),
+				    customers_Sheet = Source{[Item="customers",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(customers_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", type text}, {"age", Int64.Type}, {"gender", type text}, {"loyalty_member", Int64.Type}, {"join_date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

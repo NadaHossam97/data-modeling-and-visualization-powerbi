@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "6eebb4d0eb64089dcd03",
+  "position": {
+    "x": 11.441340782122905,
+    "y": 42.905027932960891,
+    "z": 9,
+    "height": 114.41340782122904,
+    "width": 506.27932960893855,
+    "tabOrder": 9
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Chocolate sales dashboard",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Courier New",
+                      "fontSize": "28pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
