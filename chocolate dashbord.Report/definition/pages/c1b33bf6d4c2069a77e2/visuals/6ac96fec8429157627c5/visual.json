@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "f26c51bc0d6b64a63252",
+  "name": "6ac96fec8429157627c5",
   "position": {
-    "x": 989.67597765363132,
-    "y": 10.011173184357542,
-    "z": 4000,
-    "height": 147.3072625698324,
-    "width": 224.53631284916202,
-    "tabOrder": 4000
+    "x": 290.40860215053766,
+    "y": 166.53763440860214,
+    "z": 1002,
+    "height": 110.10752688172043,
+    "width": 205.07526881720429,
+    "tabOrder": 1002
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -22,17 +22,18 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "sales"
+                          "Entity": "stores"
                         }
                       },
-                      "Property": "customer_id"
+                      "Property": "city"
                     }
                   },
-                  "Function": 5
+                  "Function": 2
                 }
               },
-              "queryRef": "Min(sales.customer_id)",
-              "nativeQueryRef": "Count of customer_id"
+              "queryRef": "Min(stores.city)",
+              "nativeQueryRef": "Cities",
+              "displayName": "Cities"
             }
           ]
         }
@@ -46,13 +47,13 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "sales"
+                        "Entity": "stores"
                       }
                     },
-                    "Property": "customer_id"
+                    "Property": "city"
                   }
                 },
-                "Function": 5
+                "Function": 2
               }
             },
             "direction": "Descending"
@@ -62,39 +63,82 @@
       }
     },
     "objects": {
-      "layout": [
-        {
-          "properties": {},
-          "selector": {
-            "id": "default"
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
+      "labels": [
         {
           "properties": {
-            "show": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'''Courier New'''"
                 }
               }
             },
-            "text": {
+            "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "'Count of customers'"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
                 }
               }
             }
           }
         }
       ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Courier New'''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
       "background": [
         {
           "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            },
             "color": {
               "solid": {
                 "color": {
@@ -104,20 +148,6 @@
                       "Percent": 0.2
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "66D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

@@ -1,19 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "e54ba1600aa035c1d81d",
+  "name": "43c8fca09c05169011bd",
   "position": {
-    "x": 753.69832402234636,
-    "y": 10.011173184357542,
-    "z": 3000,
-    "height": 148.73743016759778,
-    "width": 224.53631284916202,
-    "tabOrder": 3000
+    "x": 622.66666666666663,
+    "y": 297.33333333333331,
+    "z": 1000,
+    "height": 408,
+    "width": 450.66666666666669,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "pieChart",
     "query": {
       "queryState": {
-        "Data": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stores"
+                    }
+                  },
+                  "Property": "store_type"
+                }
+              },
+              "queryRef": "stores.store_type",
+              "nativeQueryRef": "store_type",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -80,14 +99,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "66D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "91D"
                 }
               }
             }

@@ -4,10 +4,10 @@
   "position": {
     "x": 10.563961485557083,
     "y": 158.45942228335625,
-    "z": 5,
+    "z": 5000,
     "height": 200.71526822558459,
     "width": 1022.9436038514442,
-    "tabOrder": 5
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineChart",
@@ -91,7 +91,7 @@
               },
               "queryRef": "sales.order_date.Variation.Date Hierarchy.Month",
               "nativeQueryRef": "order_date Month",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -147,128 +147,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b2d5f0dd61367a816e48",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "order_date"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b114ff1a002ec19ce9d0",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "order_date"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Quarter"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a6e22a65b0cd50e48705",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "order_date"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a63561813ae45068c9ca",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "order_date"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "672dffbcb079adcbb250",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "sales"
-                  }
-                },
-                "Property": "profit"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

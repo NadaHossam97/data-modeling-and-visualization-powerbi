@@ -1,20 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "e54ba1600aa035c1d81d",
+  "name": "3faa68617c6cbb74b4b4",
   "position": {
-    "x": 753.69832402234636,
-    "y": 10.011173184357542,
-    "z": 3000,
-    "height": 148.73743016759778,
-    "width": 224.53631284916202,
-    "tabOrder": 3000
+    "x": 1092.8172043010752,
+    "y": 166.53763440860214,
+    "z": 1005,
+    "height": 538.15053763440858,
+    "width": 187.18279569892474,
+    "tabOrder": 1005
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "multiRowCard",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stores"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "stores.city",
+              "nativeQueryRef": "city"
+            },
             {
               "field": {
                 "Aggregation": {
@@ -41,25 +55,40 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales"
-                      }
-                    },
-                    "Property": "profit"
+                  "SourceRef": {
+                    "Entity": "stores"
                   }
                 },
-                "Function": 0
+                "Property": "city"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "cardTitle": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "background": [
@@ -71,7 +100,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 8,
-                      "Percent": 0.2
+                      "Percent": 0.4
                     }
                   }
                 }
@@ -80,14 +109,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "66D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "90D"
                 }
               }
             }

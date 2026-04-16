@@ -85,25 +85,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c7a876d5dc094910646e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "sales"
-                  }
-                },
-                "Property": "profit"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "6eaf46bc29a33d6c15e0",
         "field": {
           "Column": {
