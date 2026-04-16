@@ -1,5 +1,7 @@
 # Chocolate Profit Analysis: Regional Performance Dashboard
 
+![Main Dashboard Overview](./media/chocolateDashboard.png)
+
 ## Project Overview
 
 This project provides a comprehensive analysis of chocolate sales and profit margins across different global regions. By integrating data from customers, products, and stores, the dashboard identifies high-performing regions and product categories to drive data-informed business strategies.
