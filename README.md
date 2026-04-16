@@ -58,6 +58,21 @@ The analysis utilizes a **Star Schema** to maintain high performance and filter 
 * **Dimension Tables:** Products, Customers, and Stores.
 * **Power Query:** Standardized the `Store` table by resolving header alignment issues and validating data types across all CSV sources.
 
+### DAX Measures
+
+The following time intelligence measure was implemented to track cumulative Year-to-Date profit, enabling within-year performance monitoring against the seasonal Q3 peak:
+
+```dax
+Sum of profit YTD =
+IF(
+    ISFILTERED('sales'[order_date]),
+    ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
+    TOTALYTD(SUM('sales'[profit]), 'sales'[order_date].[Date])
+)
+```
+
+This measure uses `TOTALYTD()` to accumulate profit from January 1 of each year through the current date context, making it directly comparable across 2023 and 2024 within the same visual. The `ISFILTERED()` guard ensures the measure only activates under valid date hierarchy filtering, preventing incorrect aggregation when the report is filtered by non-date dimensions.
+
 ### Version Control
 * **Format:** Saved as a **Power BI Project (.pbip)** for transparent, folder-based metadata tracking.
 * **Deployment:** Managed via local **Git** and pushed to **GitHub** to facilitate collaborative development and version history.
