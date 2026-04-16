@@ -23,30 +23,12 @@
                       "Entity": "stores"
                     }
                   },
-                  "Property": "country"
-                }
-              },
-              "queryRef": "stores.country",
-              "nativeQueryRef": "country",
-              "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "stores"
-                    }
-                  },
                   "Property": "store_type"
                 }
               },
               "queryRef": "stores.store_type",
-              "nativeQueryRef": "store_type"
+              "nativeQueryRef": "store_type",
+              "active": true
             }
           ]
         },
@@ -148,6 +130,18 @@
                   "Value": "true"
                 }
               }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -158,7 +152,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -254,5 +248,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "03e1dd1f0922e97d83b3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "sales"
+                  }
+                },
+                "Property": "profit"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7737d86e50325e005d53",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "stores"
+              }
+            },
+            "Property": "store_type"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

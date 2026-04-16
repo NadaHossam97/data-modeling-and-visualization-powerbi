@@ -23,11 +23,11 @@
                       "Entity": "products"
                     }
                   },
-                  "Property": "category"
+                  "Property": "brand"
                 }
               },
-              "queryRef": "products.category",
-              "nativeQueryRef": "category",
+              "queryRef": "products.brand",
+              "nativeQueryRef": "brand",
               "active": true
             }
           ]

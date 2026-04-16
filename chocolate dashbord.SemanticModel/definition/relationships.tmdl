@@ -16,7 +16,7 @@ relationship 2bf3484d-7fb8-6235-dd7f-8bc22e3b961a
 	fromColumn: sales.product_id
 	toColumn: products.product_id
 
-relationship AutoDetected_60f0c285-55fc-4b82-bee0-62859f8cb839
+relationship afd7bffd-a04f-6fde-6745-f9b6cd77666a
 	fromColumn: sales.store_id
 	toColumn: stores.store_id
 
