@@ -18,6 +18,8 @@ table sales
 
 		changedProperty = FormatString
 
+		changedProperty = IsHidden
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Sum of profit YTD 2' =

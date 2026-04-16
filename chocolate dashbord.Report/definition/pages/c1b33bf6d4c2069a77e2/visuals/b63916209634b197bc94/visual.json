@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "b63916209634b197bc94",
   "position": {
-    "x": 265.33333333333331,
-    "y": 64,
-    "z": 1004,
-    "height": 54.666666666666664,
-    "width": 817.33333333333337,
-    "tabOrder": 1004
+    "x": 255.71428571428572,
+    "y": 0,
+    "z": 5000,
+    "height": 54.285714285714292,
+    "width": 817.14285714285722,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,6 +21,7 @@
                   {
                     "value": "Chocolate Profits By Store Type",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontFamily": "Courier New",
                       "fontSize": "24pt"
                     }
@@ -42,8 +43,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 9,
-                      "Percent": -0.25
+                      "ColorId": 8,
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -52,7 +53,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "80D"
+                  "Value": "95D"
                 }
               }
             }

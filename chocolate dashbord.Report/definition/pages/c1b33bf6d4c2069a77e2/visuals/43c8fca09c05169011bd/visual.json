@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "43c8fca09c05169011bd",
   "position": {
-    "x": 622.66666666666663,
-    "y": 297.33333333333331,
+    "x": 622.85714285714289,
+    "y": 297.14285714285717,
     "z": 1000,
-    "height": 408,
-    "width": 450.66666666666669,
+    "height": 408.57142857142861,
+    "width": 450.00000000000006,
     "tabOrder": 1000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "stores"
+                      "Entity": "products"
                     }
                   },
-                  "Property": "store_type"
+                  "Property": "category"
                 }
               },
-              "queryRef": "stores.store_type",
-              "nativeQueryRef": "store_type",
+              "queryRef": "products.category",
+              "nativeQueryRef": "category",
               "active": true
             }
           ]
@@ -100,6 +100,52 @@
               "expr": {
                 "Literal": {
                   "Value": "91D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Courier New'''"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Profits by Chocolates Types'"
                 }
               }
             }

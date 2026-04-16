@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "f26c51bc0d6b64a63252",
   "position": {
-    "x": 989.67597765363132,
-    "y": 10.011173184357542,
+    "x": 680,
+    "y": 72.857142857142861,
     "z": 4000,
-    "height": 147.3072625698324,
-    "width": 224.53631284916202,
+    "height": 110,
+    "width": 190,
     "tabOrder": 4000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -31,8 +31,9 @@
                   "Function": 5
                 }
               },
-              "queryRef": "Min(sales.customer_id)",
-              "nativeQueryRef": "Count of customer_id"
+              "queryRef": "CountNonNull(sales.customer_id)",
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
             }
           ]
         }
@@ -62,11 +63,74 @@
       }
     },
     "objects": {
-      "layout": [
+      "labels": [
         {
-          "properties": {},
-          "selector": {
-            "id": "default"
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Courier New'''"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Courier New'''"
+                }
+              }
+            }
           }
         }
       ]
@@ -110,14 +174,14 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "66D"
+                  "Value": "81D"
                 }
               }
             },
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
